@@ -1,2 +1,3 @@
 # hexgen
-A simple node tool for generating hex code color ranges
+
+A simple tool for generating hex code color ranges

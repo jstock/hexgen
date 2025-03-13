@@ -1,0 +1,42 @@
+{
+  "name": "hexgen",
+  "version": "1.0.0",
+  "description": "A simple tool for generating hex code color ranges",
+  "author": "Jamey Stock <jameystock.dev@gmail.com>",
+  "license": "ISC",
+  "type": "module",
+  "keywords": [
+    "hex",
+    "hexcode",
+    "colors",
+    "generator",
+    "cli"
+  ],
+  "homepage": "https://github.com/jstock/hexgen#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jstock/hexgen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jstock/hexgen/issues",
+    "email": "jameystock.dev@gmail.com"
+  },
+  "scripts": {
+    "start": "node .",
+    "lint": "eslint .",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "dependencies": {
+    "commander": "^13.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@types/jest": "^29.5.14",
+    "eslint": "^9.22.0",
+    "globals": "^16.0.0",
+    "jest": "^29.7.0"
+  },
+  "bin": {
+    "hexgen": "./bin/cli.js"
+  }
+}
