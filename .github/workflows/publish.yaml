@@ -18,6 +18,8 @@ jobs:
           cache: 'pnpm'
           registry-url: https://registry.npmjs.org
       - run: pnpm i
+      - name: bump package version
+        run: pnpm version ${{ github.ref_name }} --commit-hooks=false --git-tag-version=false
       - run: pnpm publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.HEXGEN_NPM }}
