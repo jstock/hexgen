@@ -11,8 +11,13 @@ const getFullHex = (hex) => {
   }, '#');
 };
 
-const generateHexCode = (r, g, b) =>
-  getFullHex(`${r.toString(16)}${g.toString(16)}${b.toString(16)}`);
+const generateHexCode = (r, g, b) => {
+  return getFullHex(
+    `${r.toString(16).padStart(2, '0')}` +
+      `${g.toString(16).padStart(2, '0')}` +
+      `${b.toString(16).padStart(2, '0')}`
+  );
+};
 
 /**
  * Parses a hex code string into its numeric color values
@@ -33,9 +38,10 @@ const parseHexColors = (hex) => {
   };
 };
 
-const getStep = (end, start, count) => {
-  const step = (end - start) / (count + 1);
-  return step < 0 ? Math.ceil(step) : Math.floor(step);
+const getStep = (end, start, count) => (end - start) / (count + 1);
+
+const getColor = (startColor, step, count) => {
+  return Math.round(startColor + step * (count + 1));
 };
 
 /**
@@ -84,9 +90,9 @@ const generateHexColors = (start, end, count) => {
   let generated = new Array(normalizedCount);
   for (let i = 0; i < normalizedCount; i++) {
     generated[i] = generateHexCode(
-      startColor.red + redStep * (i + 1),
-      startColor.green + greenStep * (i + 1),
-      startColor.blue + blueStep * (i + 1)
+      getColor(startColor.red, redStep, i),
+      getColor(startColor.green, greenStep, i),
+      getColor(startColor.blue, blueStep, i)
     );
   }
 

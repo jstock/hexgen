@@ -90,5 +90,10 @@ describe('index', () => {
       const result = generateHexColors('#ccc', '#aaa', 1);
       expect(result).toEqual(['#cccccc', '#bbbbbb', '#aaaaaa']);
     });
+
+    test('handles partial color steps', () => {
+      const result = generateHexColors('#000000', '#010101', 2);
+      expect(result).toEqual(['#000000', '#000000', '#010101', '#010101']);
+    });
   });
 });
