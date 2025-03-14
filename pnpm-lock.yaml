@@ -27,6 +27,9 @@ importers:
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@22.13.10)
+      typescript:
+        specifier: ^5.8.2
+        version: 5.8.2
 
 packages:
 
@@ -1297,6 +1300,11 @@ packages:
   type-fest@0.21.3:
     resolution: {integrity: sha1-0mCiSwGYQ24TP6JqUkptZfo7Ljc=}
     engines: {node: '>=10'}
+
+  typescript@5.8.2:
+    resolution: {integrity: sha1-gXCzcC90t52y5aliB8FeZYB5meQ=}
+    engines: {node: '>=14.17'}
+    hasBin: true
 
   undici-types@6.20.0:
     resolution: {integrity: sha1-gXG/IsH1iNFVTVW/IEvGJK84hDM=}
@@ -2900,6 +2908,8 @@ snapshots:
   type-detect@4.0.8: {}
 
   type-fest@0.21.3: {}
+
+  typescript@5.8.2: {}
 
   undici-types@6.20.0: {}
 

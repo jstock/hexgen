@@ -1,10 +1,12 @@
 {
   "name": "@jstock/hexgen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple tool for generating hex code color ranges",
   "author": "Jamey Stock <jameystock.dev@gmail.com>",
   "license": "ISC",
   "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "keywords": [
     "hex",
     "hexcode",
@@ -34,7 +36,8 @@
     "@types/jest": "^29.5.14",
     "eslint": "^9.22.0",
     "globals": "^16.0.0",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "typescript": "^5.8.2"
   },
   "bin": {
     "hexgen": "./bin/cli.js"
