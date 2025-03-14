@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      commander:
-        specifier: ^13.1.0
-        version: 13.1.0
     devDependencies:
       '@eslint/js':
         specifier: ^9.22.0
@@ -534,10 +530,6 @@ packages:
 
   color-name@1.1.4:
     resolution: {integrity: sha1-wqCah6y95pVD3m9j+jmVyCbFNqI=}
-
-  commander@13.1.0:
-    resolution: {integrity: sha1-d2Fn22jHjzjczh+bjXuLmkiKv0Y=}
-    engines: {node: '>=18'}
 
   concat-map@0.0.1:
     resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
@@ -2019,8 +2011,6 @@ snapshots:
       color-name: 1.1.4
 
   color-name@1.1.4: {}
-
-  commander@13.1.0: {}
 
   concat-map@0.0.1: {}
 
