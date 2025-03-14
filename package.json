@@ -1,6 +1,6 @@
 {
   "name": "@jstock/hexgen",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple tool for generating hex code color ranges",
   "author": "Jamey Stock <jameystock.dev@gmail.com>",
   "license": "ISC",
