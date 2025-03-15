@@ -1,0 +1,13 @@
+{
+  "$schema": "https://typedoc-plugin-markdown.org/schema.json",
+  "plugin": ["typedoc-plugin-markdown"],
+  "mergeReadme": true,
+  "readme": "basereadme.md",
+  "outputFileStrategy": "modules",
+  "hidePageHeader": true,
+  "hideGroupHeadings": true,
+  "useCodeBlocks": true,
+  "parametersFormat": "table",
+  "typeDeclarationFormat": "table",
+  "disableSources": true
+}
