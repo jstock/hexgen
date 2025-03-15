@@ -90,11 +90,6 @@ describe('index', () => {
       expect(result).toEqual(['#000000', '#ffffff']);
     });
 
-    test('caps count at 255', () => {
-      const result = generateHexColors('#000', '#fff', 1000);
-      expect(result.length).toEqual(257);
-    });
-
     test('works with ascending values', () => {
       const result = generateHexColors('#aaa', '#ccc', 1);
       expect(result).toEqual(['#aaaaaa', '#bbbbbb', '#cccccc']);
@@ -113,6 +108,11 @@ describe('index', () => {
     test('defaults to exclude alpha values', () => {
       const result = generateHexColors('#00000000', '#ffffffff', 0);
       expect(result).toEqual(['#000000', '#ffffff']);
+    });
+
+    test('generates alpha values for no range', () => {
+      const result = generateHexColors('#aaa', '#ccc', 0, true);
+      expect(result).toEqual(['#aaaaaaff', '#ccccccff']);
     });
 
     test('generates alpha values', () => {

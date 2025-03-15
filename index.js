@@ -94,11 +94,25 @@ const generateHexColors = (start, end, count, includeAlpha = false) => {
     return null;
   }
 
-  // Clamp 0-255 to prevent overflow
-  const normalizedCount = Math.max(
-    0,
-    Math.min(255, typeof count !== 'number' ? 0 : count)
-  );
+  // Prevent negative counts
+  const normalizedCount = Math.max(0, typeof count !== 'number' ? 0 : count);
+
+  if (normalizedCount === 0) {
+    return [
+      generateHexCode(
+        startColor.red,
+        startColor.green,
+        startColor.blue,
+        !includeAlpha ? null : startColor.alpha
+      ),
+      generateHexCode(
+        endColor.red,
+        endColor.green,
+        endColor.blue,
+        !includeAlpha ? null : endColor.alpha
+      ),
+    ];
+  }
 
   const redStep = getStep(endColor.red, startColor.red, normalizedCount);
   const greenStep = getStep(endColor.green, startColor.green, normalizedCount);
