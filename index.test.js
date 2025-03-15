@@ -1,6 +1,6 @@
 import { generateHexColors, normalizeHexValue, parseHexColors } from '.';
 
-const invalidHexCodes = [null, undefined, '', '  ', 42, 'ffff', '#xxx'];
+const invalidHexCodes = [null, undefined, '', '  ', 42, 'ff', '#xxx'];
 
 describe('index', () => {
   describe('parseHexColors', () => {
@@ -9,14 +9,23 @@ describe('index', () => {
       expect(result).toBeNull();
     });
 
-    test('parses color values', () => {
-      const hexCode = '#010203';
+    test('parses color/alpha values', () => {
+      const hexCode = '#01020304';
       const result = parseHexColors(hexCode);
 
       expect(result).not.toBeNull();
       expect(result.red).toEqual(1);
       expect(result.green).toEqual(2);
       expect(result.blue).toEqual(3);
+      expect(result.alpha).toEqual(4);
+    });
+
+    test('defaults alpha to 255', () => {
+      const hexCode = '#000';
+      const result = parseHexColors(hexCode);
+
+      expect(result).not.toBeNull();
+      expect(result.alpha).toEqual(255);
     });
   });
 
@@ -44,6 +53,11 @@ describe('index', () => {
     test('handles 3-length hex codes', () => {
       const result = normalizeHexValue('#abc');
       expect(result).toEqual('#aabbcc');
+    });
+
+    test('handles 4-length hex codes', () => {
+      const result = normalizeHexValue('#abcd');
+      expect(result).toEqual('#aabbccdd');
     });
   });
 
@@ -94,6 +108,16 @@ describe('index', () => {
     test('handles partial color steps', () => {
       const result = generateHexColors('#000000', '#010101', 2);
       expect(result).toEqual(['#000000', '#000000', '#010101', '#010101']);
+    });
+
+    test('defaults to exclude alpha values', () => {
+      const result = generateHexColors('#00000000', '#ffffffff', 0);
+      expect(result).toEqual(['#000000', '#ffffff']);
+    });
+
+    test('generates alpha values', () => {
+      const result = generateHexColors('#aaaa', '#cccc', 1, true);
+      expect(result).toEqual(['#aaaaaaaa', '#bbbbbbbb', '#cccccccc']);
     });
   });
 });
