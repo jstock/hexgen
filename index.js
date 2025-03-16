@@ -11,13 +11,13 @@ const getFullHex = (hex) => {
   }, '#');
 };
 
-const generateHexCode = (r, g, b, a = null) => {
+const generateHexCode = (r, g, b, a) => {
   let result =
     `${r.toString(16).padStart(2, '0')}` +
     `${g.toString(16).padStart(2, '0')}` +
     `${b.toString(16).padStart(2, '0')}`;
 
-  if (a) {
+  if (a > -1) {
     result += `${a.toString(16).padStart(2, '0')}`;
   }
 
@@ -103,13 +103,13 @@ const generateHexColors = (start, end, count, includeAlpha = false) => {
         startColor.red,
         startColor.green,
         startColor.blue,
-        !includeAlpha ? null : startColor.alpha
+        !includeAlpha ? -1 : startColor.alpha
       ),
       generateHexCode(
         endColor.red,
         endColor.green,
         endColor.blue,
-        !includeAlpha ? null : endColor.alpha
+        !includeAlpha ? -1 : endColor.alpha
       ),
     ];
   }
@@ -125,7 +125,7 @@ const generateHexColors = (start, end, count, includeAlpha = false) => {
       getColor(startColor.red, redStep, i),
       getColor(startColor.green, greenStep, i),
       getColor(startColor.blue, blueStep, i),
-      !includeAlpha ? null : getColor(startColor.alpha, alphaStep, i)
+      !includeAlpha ? -1 : getColor(startColor.alpha, alphaStep, i)
     );
   }
 
@@ -134,14 +134,14 @@ const generateHexColors = (start, end, count, includeAlpha = false) => {
       startColor.red,
       startColor.green,
       startColor.blue,
-      !includeAlpha ? null : startColor.alpha
+      !includeAlpha ? -1 : startColor.alpha
     ),
     ...generated,
     generateHexCode(
       endColor.red,
       endColor.green,
       endColor.blue,
-      !includeAlpha ? null : endColor.alpha
+      !includeAlpha ? -1 : endColor.alpha
     ),
   ];
 };
