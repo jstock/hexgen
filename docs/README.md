@@ -33,6 +33,28 @@ The hex color range ordered from start to end
 
 ***
 
+## generateRandomHexColor()
+
+```ts
+function generateRandomHexColor(includeAlpha): string
+```
+
+Generates a random hex color string
+
+### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `includeAlpha` | `bool` | `false` | Whether to include the alpha value, defaults to false |
+
+### Returns
+
+`string`
+
+The hex color string
+
+***
+
 ## normalizeHexValue()
 
 ```ts

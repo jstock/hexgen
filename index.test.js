@@ -1,4 +1,9 @@
-import { generateHexColors, normalizeHexValue, parseHexColors } from '.';
+import {
+  generateHexColors,
+  generateRandomHexColor,
+  normalizeHexValue,
+  parseHexColors,
+} from '.';
 
 const invalidHexCodes = [null, undefined, '', '  ', 42, 'ff', '#xxx'];
 
@@ -118,6 +123,18 @@ describe('index', () => {
     test('generates alpha values', () => {
       const result = generateHexColors('#aaaa', '#cccc', 1, true);
       expect(result).toEqual(['#aaaaaaaa', '#bbbbbbbb', '#cccccccc']);
+    });
+  });
+
+  describe('generateRandomHexColor', () => {
+    test('defaults to 6 digit hex', () => {
+      const result = generateRandomHexColor();
+      expect(result.length).toEqual(7);
+    });
+
+    test('supports 8 digit hex', () => {
+      const result = generateRandomHexColor(true);
+      expect(result.length).toEqual(9);
     });
   });
 });

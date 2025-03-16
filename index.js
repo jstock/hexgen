@@ -30,6 +30,10 @@ const getColor = (startColor, step, count) => {
   return Math.round(startColor + step * (count + 1));
 };
 
+const getRandomValue = () => {
+  return Math.floor(Math.random() * 256);
+};
+
 /**
  * Parses a hex code string into its numeric color/alpha values
  * @param {string} hex                                                          The hex code string
@@ -146,4 +150,23 @@ const generateHexColors = (start, end, count, includeAlpha = false) => {
   ];
 };
 
-export { parseHexColors, normalizeHexValue, generateHexColors };
+/**
+ * Generates a random hex color string
+ * @param {bool} includeAlpha Whether to include the alpha value, defaults to false
+ * @returns {string}          The hex color string
+ */
+const generateRandomHexColor = (includeAlpha = false) => {
+  return generateHexCode(
+    getRandomValue(),
+    getRandomValue(),
+    getRandomValue(),
+    !includeAlpha ? -1 : getRandomValue()
+  );
+};
+
+export {
+  parseHexColors,
+  normalizeHexValue,
+  generateHexColors,
+  generateRandomHexColor,
+};
