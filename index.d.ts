@@ -24,4 +24,10 @@ export function normalizeHexValue(hex: string): string | null;
  * @returns {string[] | null} The hex color range ordered from start to end
  */
 export function generateHexColors(start: string, end: string, count: number, includeAlpha?: bool): string[] | null;
+/**
+ * Generates a random hex color string
+ * @param {bool} includeAlpha Whether to include the alpha value, defaults to false
+ * @returns {string}          The hex color string
+ */
+export function generateRandomHexColor(includeAlpha?: bool): string;
 //# sourceMappingURL=index.d.ts.map
